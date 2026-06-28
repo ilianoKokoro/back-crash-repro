@@ -96,24 +96,21 @@ fun NavigationRoot() {
 
 
 @Composable
-fun CrashDropdown(
-) {
+fun CrashDropdown() {
     var expanded by remember { mutableStateOf(false) }
     Column {
         IconButton(onClick = { expanded = true }) {
             Icon(
-                imageVector = Icons.Rounded.MoreVert, contentDescription = null
+                imageVector = Icons.Rounded.MoreVert,
+                contentDescription = null
             )
-
-            DropdownMenu(
-                expanded = expanded,
-                onDismissRequest = { expanded = false },
-                shape = RoundedCornerShape(24.dp),
-            ) {
-
-                Text("Crash contents")
-            }
+        }
+        DropdownMenu(
+            expanded = expanded,
+            onDismissRequest = { expanded = false },
+            shape = RoundedCornerShape(24.dp),
+        ) {
+            Text("Crash contents")
         }
     }
-
 }
