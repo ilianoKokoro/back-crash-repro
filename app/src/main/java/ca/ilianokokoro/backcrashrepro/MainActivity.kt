@@ -69,7 +69,7 @@ fun NavigationRoot() {
         modifier = Modifier
             .fillMaxSize(),
         backStack = backStack,
-        onBack = backStack::removeFirstOrNull,
+        onBack = backStack::removeLastOrNull,
         entryDecorators = listOf(
             rememberSaveableStateHolderNavEntryDecorator(),
         ),
@@ -85,7 +85,12 @@ fun NavigationRoot() {
                 }
 
                 is SecondScreen -> NavEntry(key) {
+                    Column {
+                        TextButton(onClick =  backStack::removeLastOrNull ) {
+                            Text("Back")
+                        }
                     CrashDropdown()
+                    }
                 }
 
 
